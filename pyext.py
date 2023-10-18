@@ -115,7 +115,7 @@ else:
 def _gettypes(args):
     return tuple(map(type, args))
 
-oargspec = inspect.getargspec
+oargspec = getattr(inspect, 'getargspec', ofullargspec)
 
 def _argspec(func):
     return _targspec(func, oargspec)
